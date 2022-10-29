@@ -13,6 +13,7 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Correctly added with different bank accounts');
     END IF;
 END;
+/
 
 -- add a trigger that checks if the travel cost is 0 when the theater is the same as the company's theater
 CREATE OR REPLACE TRIGGER representation_travel_cost_trigger
@@ -34,6 +35,7 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Correctly added with travel cost different than 0');
     END IF;
 END;
+/
 
 -- A trigger that adds and removes money from bank accounts as soon as a transaction is created
 CREATE OR REPLACE TRIGGER transaction_check
@@ -68,7 +70,7 @@ BEGIN
     VALUES ((SELECT MAX(id_transaction) FROM transaction) + 1, theater_bank, company_bank, total_fees);
     DBMS_OUTPUT.PUT_LINE('Correctly added the transaction in the bank accoutns');
 END;
-
+/
 -- This triggers changes the price of the ticket when the date of the representation is in more than 15 days
 CREATE OR REPLACE TRIGGER ticket_price_date_trigger
     AFTER INSERT OR UPDATE ON date_sequence
@@ -85,7 +87,7 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Correctly updated the price of the tickets regarding to the date');
     END IF;
 END;
-
+/
 --Un trigger qui modifie le prix d'un ticket en fonctiondu % de remplissage de la room
 CREATE OR REPLACE TRIGGER ticket_price_filling_room_trigger
 BEFORE INSERT OR UPDATE ON tickets
@@ -106,7 +108,7 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Correctly updated the price of the tickets regarding to the filling of the room');
     END IF;
 END;
-
+/
 -- Trigger qui modifie le prix d'un ticket en fonction du nombre de places restantes et de la date de la représentation
 CREATE OR REPLACE TRIGGER ticket_price_filling_room_date_trigger
     AFTER INSERT OR UPDATE ON date_sequence
@@ -130,7 +132,7 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Correctly updated the price of the tickets regarding to the date and the filling of the room');
     END IF;
 END;
-
+/
 -- This triggers changes the price of the ticket when the date of the representation is in more than 15 days
 CREATE OR REPLACE TRIGGER subvention_date_trigger
     AFTER INSERT OR UPDATE ON date_sequence
@@ -167,7 +169,7 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Correctly added the subvention in the bank accoutns');
     END IF;
 END;
-
+/
 -- Give the theater balance at the end of each month
 CREATE OR REPLACE TRIGGER monthly_balance_trigger
     AFTER INSERT OR UPDATE ON date_sequence
@@ -187,7 +189,7 @@ BEGIN
         END LOOP;
     END IF;
 END;
-
+/
 -- Check that the theater does not produce two shows on the same day
 CREATE OR REPLACE TRIGGER theater_show_date_trigger
     BEFORE INSERT OR UPDATE ON representation
@@ -204,23 +206,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'The theater already has a show on this date');
     END IF;
 END;
-
--- Check that the companies does not produce two shows on the same day
-CREATE OR REPLACE TRIGGER company_show_date_trigger
-    BEFORE INSERT OR UPDATE ON representation
-    FOR EACH ROW
-DECLARE
-    company INTEGER;
-    date_rep DATE;
-BEGIN
-    SELECT r.date_rep, r.Company_id_company INTO date_rep, company
-    FROM representation r
-    WHERE r.id_show = :NEW.id_show;
-
-    IF date_rep = :NEW.date_rep AND company = :NEW.Company_id_company THEN
-        RAISE_APPLICATION_ERROR(-20002, 'The company already has a show on this date');
-    END IF;
-END;
+/
 
 -- Trigger that add in the theater bank account the amount of the ticket sold
 CREATE OR REPLACE TRIGGER ticket_sold_trigger
@@ -239,3 +225,4 @@ BEGIN
     UPDATE bank SET balance = balance + amount WHERE id_bank = bank;
     DBMS_OUTPUT.PUT_LINE('Correctly added the amount of the ticket sold in the bank account');
 END;
+/

@@ -9,7 +9,7 @@ INSERT INTO bank (id_bank, balance) VALUES (6, 50000.00);
 INSERT INTO bank (id_bank, balance) VALUES (7, 40000.00);
 INSERT INTO bank (id_bank, balance) VALUES (8, 30000.00);
 INSERT INTO bank (id_bank, balance) VALUES (9, 20000.00);
-INSERT INTO bank (id_bank, balance) VALUES (10, 10000.00);*
+INSERT INTO bank (id_bank, balance) VALUES (10, 10000.00);
 -- company banks account
 INSERT INTO bank (id_bank, balance) VALUES (11, 1000.00);
 INSERT INTO bank (id_bank, balance) VALUES (12, 1000.00);
@@ -127,42 +127,3 @@ INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, a
 INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, amount) VALUES (5, 2, '01-01-2022', 'state', 'F', 80000.00);
 INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, amount) VALUES (6, 3, '15-11-2022', 'town', 'F', 1000.00);
 INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, amount) VALUES (7, 3, '01-01-2022', 'state', 'F', 80000.00);
-
--- Test dates :
-UPDATE date_sequence SET seq_date = '07-11-2022' WHERE date_sequence = '01-11-2022'; -- > This date is the first representation of the first show
-SELECT * FROM transactions -- will show the fees paid by the theater 1 for the show 1
-
-UPDATE date_sequence SET seq_date = '10-11-22' WHERE date_sequence = '07-11-22'; -- > This date is the first representation of the second show
-
-UPDATE date_sequence SET seq_date = '15-11-2022' WHERE date_sequence = '10-11-2022'; -- > This date is the first subvention date
-SELECT * FROM representation WHERE date_rep = '18-11-2022'; -- will show the diiscount price for the show 3 in theater 2
-SELECT * FROM subvention -- will show the subvention credited for the theaters
-SELECT * FROM bank WHERE id_bank IN (SELECT id_bank FROM theater); -- will show the bank account credited of the theaters
-
-UPDATE date_sequence SET seq_date = '17-11-2022' WHERE date_sequence = '15-11-2022';
-UPDATE date_sequence SET seq_date = '18-11-2022' WHERE date_sequence = '17-11-2022';
-UPDATE date_sequence SET seq_date = '20-11-2022' WHERE date_sequence = '18-11-2022';
-UPDATE date_sequence SET seq_date = '22-11-2022' WHERE date_sequence = '20-11-2022';
-UPDATE date_sequence SET seq_date = '24-11-2022' WHERE date_sequence = '22-11-2022';
-UPDATE date_sequence SET seq_date = '25-11-2022' WHERE date_sequence = '24-11-2022';
-UPDATE date_sequence SET seq_date = '01-12-2022' WHERE date_sequence = '25-11-2022';
-UPDATE date_sequence SET seq_date = '07-12-2022' WHERE date_sequence = '01-12-2022';
-UPDATE date_sequence SET seq_date = '08-12-2022' WHERE date_sequence = '07-12-2022';
-UPDATE date_sequence SET seq_date = '10-12-2022' WHERE date_sequence = '08-12-2022';
-UPDATE date_sequence SET seq_date = '15-12-2022' WHERE date_sequence = '10-12-2022';
-UPDATE date_sequence SET seq_date = '18-12-2022' WHERE date_sequence = '15-12-2022';
-UPDATE date_sequence SET seq_date = '22-12-2022' WHERE date_sequence = '18-12-2022';
-UPDATE date_sequence SET seq_date = '31-12-2022' WHERE date_sequence = '22-12-2022';
-UPDATE date_sequence SET seq_date = '01-01-2023' WHERE date_sequence = '31-12-2022'; -- > day pf the state every 5 year subvention
-SELECT * FROM subvention -- will show the subvention credited for the theaters
-SELECT * FROM bank WHERE id_bank IN (SELECT id_bank FROM theater); -- will show the bank account credited of the theaters
-
-UPDATE date_sequence SET seq_date = '01-02-2023' WHERE date_sequence = '01-01-2023';
-
-DELETE FROM bank;
-DELETE FROM theater;
-DELETE FROM company;
-DELETE FROM show;
-DELETE FROM representation;
-DELETE FROM tickets;
-DELETE FROM subventions;
