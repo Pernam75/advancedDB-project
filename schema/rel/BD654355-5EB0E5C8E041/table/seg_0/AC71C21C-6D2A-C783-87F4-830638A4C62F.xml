@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AC71C21C-6D2A-C783-87F4-830638A4C62F" name="Bank">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:18:23 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_bank" id="6790EDB7-9E90-3041-1E5E-C6FD886EE952">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:24:12 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="balance" id="BE82AD6B-594F-CFFC-F766-7A4EF7B1D44D">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 16:35:40 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0D964003-0CE1-2D3C-DD21-A867E36DF215" name="Bank_PK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:24:12 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6790EDB7-9E90-3041-1E5E-C6FD886EE952"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

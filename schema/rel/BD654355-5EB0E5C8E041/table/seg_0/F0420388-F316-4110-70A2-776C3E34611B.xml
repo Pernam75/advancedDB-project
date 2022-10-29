@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F0420388-F316-4110-70A2-776C3E34611B" name="Transaction">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:30:56 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_transaction" id="9CDA712F-4DA6-2C03-519B-1152093DE3D6">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:31:29 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_bank_A" id="92374C7D-8FA1-9610-0FB2-18FC603EEFA6">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:37:18 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E744DA42-08F3-2A03-8938-C994800792B3" referredColumn="6790EDB7-9E90-3041-1E5E-C6FD886EE952"/>
+</associations>
+</Column>
+<Column name="id_bank_B" id="20858E1E-B3B2-E370-FC79-D72A58246A71">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:37:52 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B0F1B537-8A92-7E6A-2C82-56B196000B33" referredColumn="6790EDB7-9E90-3041-1E5E-C6FD886EE952"/>
+</associations>
+</Column>
+<Column name="amount" id="D21B1FA0-62FF-E1EB-F582-0EA9E1EC34CF">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:38:44 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0C21B859-56E5-82FA-F148-2E4740F6DE0E" name="Transaction_PK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:31:45 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9CDA712F-4DA6-2C03-519B-1152093DE3D6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="566ACDAA-6393-07D8-1A3B-DAF0F83ECBCC" name="Transaction_Bank_Buyer_FK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:37:18 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="92374C7D-8FA1-9610-0FB2-18FC603EEFA6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6769D85B-2644-DB91-6FFB-3E8E26255D15" name="Transaction_Bank_Seller_FK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:37:52 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20858E1E-B3B2-E370-FC79-D72A58246A71"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

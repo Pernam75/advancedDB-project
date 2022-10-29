@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B14C2562-8089-E33C-A537-8C4903F95C77" name="Date">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:11:51 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="scenario" id="E295B64D-9927-1CB8-F202-12BCC15F6333">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:12:07 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date" id="A70B8BF3-CB41-53FD-6BB1-A5B93C4D0CF6">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:12:28 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="26B7EC4D-DE97-724A-FC8D-8CF09ED7D4C9" name="Date_PK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:12:07 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E295B64D-9927-1CB8-F202-12BCC15F6333"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

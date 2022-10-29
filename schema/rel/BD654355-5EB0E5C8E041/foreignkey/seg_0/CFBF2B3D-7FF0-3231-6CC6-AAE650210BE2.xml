@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CFBF2B3D-7FF0-3231-6CC6-AAE650210BE2" containerWithKeyObject="31DFB9F1-F468-910F-1116-1EADE56A97DF" localFKIndex="96370F6B-6978-3C70-18A6-9B9FF5A98DC0" name="Tickets_Representation_FK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 19:37:25 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<referredTableLongName>Representation</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>ED467CB4-B089-50C3-1C73-3DD01DE8AE36</referredTableID>
+<keyObject>4E13833C-015A-94CC-1E2E-11BD8C22585D</keyObject>
+<referredKeyID>4E13833C-015A-94CC-1E2E-11BD8C22585D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Theater_id_theater,id_show</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="ED467CB4-B089-50C3-1C73-3DD01DE8AE36" name="Representation">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:36:28 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Theater_id_theater" id="66B35CD6-713A-AFBD-8518-0C6919A9A458">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:36:41 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EE6FDDFF-92FD-CD84-98B2-5DB480C3A5AF" referredColumn="DD2ACD3C-24B6-7EA5-D3FE-4C5851E907B8"/>
+</associations>
+</Column>
+<Column name="id_show" id="415EE13E-FA85-8702-B0DC-C9DBC24E51CE">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:36:47 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2B195EBE-FC93-A9D0-B8A5-2EC3015B4B27" referredColumn="22DB6F79-A333-8E3D-EF55-602C49719961"/>
+</associations>
+</Column>
+<Column name="cost" id="43F1EE68-8AC3-F2AC-9128-1906397542F2">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:43:55 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="travel_cost" id="756D0CE3-EE28-C0E7-6705-F4798303D279">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 19:30:18 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date" id="F72572D3-0448-B01B-0EBA-BAE88319AE45">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:10:04 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4E13833C-015A-94CC-1E2E-11BD8C22585D" name="Representation_PK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:36:54 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66B35CD6-713A-AFBD-8518-0C6919A9A458"/>
+<colUsage columnID="415EE13E-FA85-8702-B0DC-C9DBC24E51CE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F474203-A967-8519-9D92-618EB8324CC6" name="Representation_Theater_FK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:36:41 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66B35CD6-713A-AFBD-8518-0C6919A9A458"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5FBDABB5-9737-6770-9FFE-8C71196DFD9B" name="Representation_Show_FK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-15 14:36:47 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="415EE13E-FA85-8702-B0DC-C9DBC24E51CE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E1FAC310-91DA-3926-B93E-52ADC1738D7E" name="Subventions">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:06:02 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_subvention" id="0497F6F7-85E4-7899-12C2-67F6B4DA56A1">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:06:19 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_theater" id="90811BEF-5D5E-8AD8-9F4B-56AA75ED0123">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:08:01 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B80C93F1-50B4-BF96-1E20-134ACAC449E5" referredColumn="DD2ACD3C-24B6-7EA5-D3FE-4C5851E907B8"/>
+</associations>
+</Column>
+<Column name="date" id="F4C198D8-BA78-E73E-80F1-04EABF96F7A9">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:34:59 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sender" id="0FF3075F-129D-8E46-BE62-39B2E985E43A">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:35:26 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="credited" id="730F097B-3DC3-80BA-2343-119F160E6BAC">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 22:22:54 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="78383203-69D9-4884-985F-D381422096B6" name="Subventions_PK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:06:26 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0497F6F7-85E4-7899-12C2-67F6B4DA56A1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4A7C2C49-FEEB-2A28-29CE-31B297B4F8F9" name="Subventions_Theater_FK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 20:08:01 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90811BEF-5D5E-8AD8-9F4B-56AA75ED0123"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

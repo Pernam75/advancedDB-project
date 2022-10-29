@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="31DFB9F1-F468-910F-1116-1EADE56A97DF" name="Tickets">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 19:36:30 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_ticket" id="D111D1EB-199E-B380-F5A5-3DFE19AED327">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 19:36:50 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ref_price" id="3C855E6A-1517-FD30-1AF7-2374DD407338">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 19:36:57 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_theater" id="65B5F8E9-1016-428D-8C4F-8C87047E8658">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 19:37:25 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CFBF2B3D-7FF0-3231-6CC6-AAE650210BE2" referredColumn="66B35CD6-713A-AFBD-8518-0C6919A9A458"/>
+</associations>
+</Column>
+<Column name="id_show" id="B7305C37-8494-FBA4-7C34-24C158B09646">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 19:37:25 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CFBF2B3D-7FF0-3231-6CC6-AAE650210BE2" referredColumn="415EE13E-FA85-8702-B0DC-C9DBC24E51CE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5097B9F4-4CFB-F328-C25B-153D94325B55" name="Tickets_PK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 19:36:57 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D111D1EB-199E-B380-F5A5-3DFE19AED327"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="96370F6B-6978-3C70-18A6-9B9FF5A98DC0" name="Tickets_Representation_FK">
+<createdBy>jules</createdBy>
+<createdTime>2022-10-16 19:37:25 UTC</createdTime>
+<ownerDesignName>schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="65B5F8E9-1016-428D-8C4F-8C87047E8658"/>
+<colUsage columnID="B7305C37-8494-FBA4-7C34-24C158B09646"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
