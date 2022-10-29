@@ -23,7 +23,7 @@ CREATE TABLE representation (
     id_show            INTEGER NOT NULL,
     cost               FLOAT(2) NOT NULL,
     travel_cost        FLOAT(2) NOT NULL,
-    rep_date             DATE NOT NULL,
+    date_rep             DATE NOT NULL,
     CONSTRAINT check_travel_cost CHECK (travel_cost >= 0)
 );
 
@@ -34,7 +34,9 @@ CREATE TABLE show (
     id_show    INTEGER NOT NULL,
     id_company INTEGER NOT NULL,
     name       VARCHAR2(25) NOT NULL,
-    fix_fees   FLOAT(2) NOT NULL
+    fix_fees   FLOAT(2) NOT NULL,
+    nb_repr    INTEGER NOT NULL,
+    first_rep DATE NOT NULL
 );
 
 ALTER TABLE show ADD CONSTRAINT show_pk PRIMARY KEY ( id_show );
@@ -44,7 +46,8 @@ CREATE TABLE subventions (
     id_theater    INTEGER NOT NULL,
     sub_date        DATE NOT NULL,
     sender        INTEGER NOT NULL,
-    credited      CHAR(1) NOT NULL
+    credited      CHAR(1) NOT NULL,
+    amount        FLOAT(2) NOT NULL
 );
 
 -- Oracle SQL has no boolean type, so we use CHAR(1) instead and we check the value
