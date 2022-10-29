@@ -15,18 +15,16 @@ CREATE TABLE company (
 ALTER TABLE company ADD CONSTRAINT company_pk PRIMARY KEY ( id_company );
 
 CREATE TABLE date_sequence (
-    scenario INTEGER NOT NULL,
     seq_date   DATE NOT NULL
 );
-
-ALTER TABLE date_sequence ADD CONSTRAINT date_sequence_pk PRIMARY KEY ( scenario );
 
 CREATE TABLE representation (
     theater_id_theater INTEGER NOT NULL,
     id_show            INTEGER NOT NULL,
     cost               FLOAT(2) NOT NULL,
     travel_cost        FLOAT(2) NOT NULL,
-    rep_date             DATE NOT NULL
+    rep_date             DATE NOT NULL,
+    CONSTRAINT check_travel_cost CHECK (travel_cost >= 0)
 );
 
 ALTER TABLE representation ADD CONSTRAINT representation_pk PRIMARY KEY ( theater_id_theater,
@@ -123,12 +121,3 @@ ALTER TABLE transaction
 ALTER TABLE transaction
     ADD CONSTRAINT transaction_bank_seller_fk FOREIGN KEY ( id_bank_b )
         REFERENCES bank ( id_bank );
-
--- create a procedure that selects a date with a given scenario parameter
-
-
-
--- run the function
-
-SELECT get_date(1) FROM dual;
-
