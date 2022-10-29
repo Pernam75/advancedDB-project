@@ -17,17 +17,18 @@ ALTER TABLE company ADD CONSTRAINT company_pk PRIMARY KEY ( id_company );
 CREATE TABLE date_sequence (
     seq_date   DATE NOT NULL
 );
+INSERT INTO date_sequence VALUES ( '01-10-2022' );
 
 CREATE TABLE representation (
-    theater_id_theater INTEGER NOT NULL,
+    id_theater INTEGER NOT NULL,
     id_show            INTEGER NOT NULL,
     cost               FLOAT(2) NOT NULL,
     travel_cost        FLOAT(2) NOT NULL,
     date_rep             DATE NOT NULL,
+    ref_price          FLOAT(2) NOT NULL,
     CONSTRAINT check_travel_cost CHECK (travel_cost >= 0)
 );
-
-ALTER TABLE representation ADD CONSTRAINT representation_pk PRIMARY KEY ( theater_id_theater,
+ALTER TABLE representation ADD CONSTRAINT representation_pk PRIMARY KEY ( id_theater,
                                                                           id_show );
 
 CREATE TABLE show (
@@ -45,14 +46,14 @@ CREATE TABLE subventions (
     id_subvention INTEGER NOT NULL,
     id_theater    INTEGER NOT NULL,
     sub_date        DATE NOT NULL,
-    sender        INTEGER NOT NULL,
+    sender        VARCHAR(25) NOT NULL,
     credited      CHAR(1) NOT NULL,
     amount        FLOAT(2) NOT NULL
 );
 
 -- Oracle SQL has no boolean type, so we use CHAR(1) instead and we check the value
 ALTER TABLE subventions ADD CONSTRAINT subventions_ck1 CHECK ( credited IN ('T', 'F') );
-
+ALTER TABLE subventions ADD CONSTRAINT subventions_sd1 CHECK ( sender IN ('town', 'state', 'other') );
 ALTER TABLE subventions ADD CONSTRAINT subventions_pk PRIMARY KEY ( id_subvention );
 
 CREATE TABLE theater (
@@ -60,14 +61,16 @@ CREATE TABLE theater (
     id_bank    INTEGER NOT NULL,
     name       VARCHAR2(25) NOT NULL,
     adress     VARCHAR2(50) NOT NULL,
+    city      VARCHAR2(25) NOT NULL,
     capacity   INTEGER NOT NULL
 );
+
 
 ALTER TABLE theater ADD CONSTRAINT theater_pk PRIMARY KEY ( id_theater );
 
 CREATE TABLE tickets (
     id_ticket  INTEGER NOT NULL,
-    ref_price  FLOAT(2) NOT NULL,
+    sold_price  FLOAT(2) NOT NULL,
     id_theater INTEGER NOT NULL,
     id_show    INTEGER NOT NULL
 );
@@ -96,7 +99,7 @@ ALTER TABLE representation
         REFERENCES show ( id_show );
 
 ALTER TABLE representation
-    ADD CONSTRAINT representation_theater_fk FOREIGN KEY ( theater_id_theater )
+    ADD CONSTRAINT representation_theater_fk FOREIGN KEY ( id_theater )
         REFERENCES theater ( id_theater );
 
 ALTER TABLE show
@@ -114,7 +117,7 @@ ALTER TABLE theater
 ALTER TABLE tickets
     ADD CONSTRAINT tickets_representation_fk FOREIGN KEY ( id_theater,
                                                            id_show )
-        REFERENCES representation ( theater_id_theater,
+        REFERENCES representation ( id_theater,
                                     id_show );
 
 ALTER TABLE transaction
@@ -124,3 +127,4 @@ ALTER TABLE transaction
 ALTER TABLE transaction
     ADD CONSTRAINT transaction_bank_seller_fk FOREIGN KEY ( id_bank_b )
         REFERENCES bank ( id_bank );
+

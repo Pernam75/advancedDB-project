@@ -1,33 +1,168 @@
-INSERT INTO date_sequence (scenario, seq_date) VALUES (1, TO_DATE('01/01/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (2, TO_DATE('16/01/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (3, TO_DATE('01/02/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (4, TO_DATE('16/02/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (5, TO_DATE('01/03/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (6, TO_DATE('16/03/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (7, TO_DATE('01/04/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (8, TO_DATE('16/04/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (9, TO_DATE('01/05/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (10, TO_DATE('16/05/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (11, TO_DATE('01/06/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (12, TO_DATE('16/06/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (13, TO_DATE('01/07/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (14, TO_DATE('16/07/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (15, TO_DATE('01/08/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (16, TO_DATE('16/08/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (17, TO_DATE('01/09/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (18, TO_DATE('16/09/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (19, TO_DATE('01/10/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (20, TO_DATE('16/10/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence (scenario, seq_date) VALUES (21, TO_DATE('01/11/2022', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (22, TO_DATE('01/01/2010', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (23, TO_DATE('01/01/2011', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (24, TO_DATE('01/01/2012', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (25, TO_DATE('01/01/2013', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (26, TO_DATE('01/01/2014', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (27, TO_DATE('01/01/2015', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (28, TO_DATE('01/01/2016', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (29, TO_DATE('01/01/2017', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (30, TO_DATE('01/01/2018', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (31, TO_DATE('01/01/2019', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (32, TO_DATE('01/01/2020', 'DD/MM/YYYY'));
-INSERT INTO date_sequence(scenario, seq_date) VALUES (33, TO_DATE('01/01/2021', 'DD/MM/YYYY'));
+
+-- theater bank accounts
+INSERT INTO bank (id_bank, balance) VALUES (1, 100000.00);
+INSERT INTO bank (id_bank, balance) VALUES (2, 90000.00);
+INSERT INTO bank (id_bank, balance) VALUES (3, 80000.00);
+INSERT INTO bank (id_bank, balance) VALUES (4, 70000.00);
+INSERT INTO bank (id_bank, balance) VALUES (5, 60000.00);
+INSERT INTO bank (id_bank, balance) VALUES (6, 50000.00);
+INSERT INTO bank (id_bank, balance) VALUES (7, 40000.00);
+INSERT INTO bank (id_bank, balance) VALUES (8, 30000.00);
+INSERT INTO bank (id_bank, balance) VALUES (9, 20000.00);
+INSERT INTO bank (id_bank, balance) VALUES (10, 10000.00);*
+-- company banks account
+INSERT INTO bank (id_bank, balance) VALUES (11, 1000.00);
+INSERT INTO bank (id_bank, balance) VALUES (12, 1000.00);
+INSERT INTO bank (id_bank, balance) VALUES (13, 1000.00);
+INSERT INTO bank (id_bank, balance) VALUES (14, 1000.00);
+INSERT INTO bank (id_bank, balance) VALUES (15, 1000.00);
+INSERT INTO bank (id_bank, balance) VALUES (16, 1000.00);
+INSERT INTO bank (id_bank, balance) VALUES (17, 1000.00);
+INSERT INTO bank (id_bank, balance) VALUES (18, 1000.00);
+INSERT INTO bank (id_bank, balance) VALUES (19, 1000.00);
+INSERT INTO bank (id_bank, balance) VALUES (20, 1000.00);
+
+
+-- theater table
+INSERT INTO theater(id_theater, id_bank, name, adress, city, capacity) VALUES (1, 1, 'Theatre de Paris', '15 rue Blanche', 'Paris', 100);
+INSERT INTO theater(id_theater, id_bank, name, adress, city, capacity) VALUES (2, 2, 'Theatre de Lyon', '15 rue Blanche', 'Lyon', 220);
+INSERT INTO theater(id_theater, id_bank, name, adress, city, capacity) VALUES (3, 3, 'Theatre de Marseille', '15 rue Blanche', 'Marseille', 124);
+INSERT INTO theater(id_theater, id_bank, name, adress, city, capacity) VALUES (4, 4, 'Theatre de Toulouse', '15 rue Blanche', 'Toulouse', 239);
+INSERT INTO theater(id_theater, id_bank, name, adress, city, capacity) VALUES (5, 5, 'Theatre de Nice', '15 rue Blanche', 'Nice', 10);
+INSERT INTO theater(id_theater, id_bank, name, adress, city, capacity) VALUES (6, 6, 'Theatre de Nantes', '15 rue Blanche', 'Nantes', 64);
+INSERT INTO theater(id_theater, id_bank, name, adress, city, capacity) VALUES (7, 7, 'Theatre de Strasbourg', '15 rue Blanche', 'Strasbourg', 34);
+INSERT INTO theater(id_theater, id_bank, name, adress, city, capacity) VALUES (8, 8, 'Theatre de Montpellier', '15 rue Blanche', 'Montpellier', 58);
+INSERT INTO theater(id_theater, id_bank, name, adress, city, capacity) VALUES (9, 9, 'Theatre de Bordeaux', '15 rue Blanche', 'Bordeaux', 79);
+INSERT INTO theater(id_theater, id_bank, name, adress, city, capacity) VALUES (10, 10, 'Theatre de Lille', '15 rue Blanche', 'Lille', 223);
+
+-- company table
+INSERT INTO company VALUES (1, 11, 'Company 1', 1);
+INSERT INTO company VALUES (2, 12, 'Company 2', 2);
+INSERT INTO company VALUES (3, 13, 'Company 3', 3);
+INSERT INTO company VALUES (4, 14, 'Company 4', 2);
+INSERT INTO company VALUES (5, 15, 'Company 5', 1);
+INSERT INTO company VALUES (6, 16, 'Company 6', 3);
+INSERT INTO company VALUES (7, 17, 'Company 7', 1);
+INSERT INTO company VALUES (8, 18, 'Company 8', 2);
+INSERT INTO company VALUES (9, 19, 'Company 9', 3);
+INSERT INTO company VALUES (10, 20, 'Company 10', 2);
+
+-- show table
+INSERT INTO show(id_show, id_company, name, fix_fees, nb_repr, first_rep) VALUES (1, 1, 'Show 1', 1000, 10, '07-11-2022');
+INSERT INTO show(id_show, id_company, name, fix_fees, nb_repr, first_rep) VALUES (2, 2, 'Show 2', 1000, 10, '10-11-2022');
+INSERT INTO show(id_show, id_company, name, fix_fees, nb_repr, first_rep) VALUES (3, 3, 'Show 3', 1000, 10, '18-11-2022');
+INSERT INTO show(id_show, id_company, name, fix_fees, nb_repr, first_rep) VALUES (4, 4, 'Show 4', 1000, 10, '20-11-2022');
+INSERT INTO show(id_show, id_company, name, fix_fees, nb_repr, first_rep) VALUES (5, 5, 'Show 5', 1000, 10, '25-11-2022');
+INSERT INTO show(id_show, id_company, name, fix_fees, nb_repr, first_rep) VALUES (6, 1, 'Show 6', 1000, 10, '30-11-2022');
+INSERT INTO show(id_show, id_company, name, fix_fees, nb_repr, first_rep) VALUES (7, 2, 'Show 7', 1000, 10, '01-12-2022');
+INSERT INTO show(id_show, id_company, name, fix_fees, nb_repr, first_rep) VALUES (8, 3, 'Show 8', 1000, 10, '05-12-2022');
+INSERT INTO show(id_show, id_company, name, fix_fees, nb_repr, first_rep) VALUES (9, 4, 'Show 9', 1000, 10, '10-12-2022');
+INSERT INTO show(id_show, id_company, name, fix_fees, nb_repr, first_rep) VALUES (10, 5, 'Show 10', 1000, 10, '15-12-2022');
+
+
+-- representation table
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (1, 1, 100, 0, '07-11-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (2, 1, 100, 300, '10-11-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (3, 1, 100, 200, '30-11-2022', 100);
+
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (1, 2, 100, 0, '10-11-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (3, 2, 100, 200, '17-11-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (2, 2, 100, 300, '30-11-2022', 100);
+
+
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (2, 3, 100, 300, '18-11-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (1, 3, 100, 0, '22-11-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (3, 3, 100, 200, '27-11-2022', 100);
+
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (1, 4, 100, 0, '20-11-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (3, 4, 100, 200, '24-11-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (2, 4, 100, 300, '29-11-2022', 100);
+
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (2, 5, 100, 300, '25-11-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (3, 5, 100, 200, '01-12-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (1, 5, 100, 0, '07-12-2022', 100);
+
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (2, 6, 100, 300, '30-11-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (1, 6, 100, 0, '10-12-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (3, 6, 100, 200, '15-12-2022', 100);
+
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (2, 7, 100, 300, '01-12-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (3, 7, 100, 200, '01-01-2023', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (1, 7, 100, 0, '01-02-2023', 100);
+
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (3, 8, 100, 200, '05-12-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (2, 8, 100, 300, '07-12-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (1, 8, 100, 0, '08-12-2022', 100);
+
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (3, 9, 100, 200, '10-12-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (2, 9, 100, 300, '30-12-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (1, 9, 100, 0, '31-12-2022', 100);
+
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (3, 10, 100, 200, '15-12-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (2, 10, 100, 300, '18-12-2022', 100);
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (1, 10, 100, 0, '22-12-2022', 100);
+
+INSERT INTO representation(id_theater, id_show, cost, travel_cost, date_rep, ref_price) VALUES (5, 1, 100, 200, '20-12-2022', 100);
+
+-- You will get some trigger errors related to the travel cost which are not 0
+
+-- ticket table
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (1, 100, 1, 1);
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (2, 100, 1, 1);
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (3, 100, 1, 1);
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (4, 100, 1, 1);
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (5, 100, 1, 1);
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (6, 100, 1, 1);
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (7, 100, 1, 1);
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (8, 100, 1, 1);
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (9, 100, 1, 1);
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (10, 100, 1, 1);
+INSERT INTO tickets(id_ticket, sold_price, id_theater, id_show) VALUES (11, 100, 2, 2);
+
+-- subvention table
+INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, amount) VALUES (1, 1, '15-11-2022', 'town', 'F', 1000.00);
+INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, amount) VALUES (2, 1, '01-01-2022', 'state', 'F', 80000.00);
+INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, amount) VALUES (3, 1, '01-01-2022', 'other', 'F', 10000.00);
+INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, amount) VALUES (4, 2, '15-11-2022', 'town', 'F', 1000.00);
+INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, amount) VALUES (5, 2, '01-01-2022', 'state', 'F', 80000.00);
+INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, amount) VALUES (6, 3, '15-11-2022', 'town', 'F', 1000.00);
+INSERT INTO subventions(id_subvention, id_theater, sub_date, sender, credited, amount) VALUES (7, 3, '01-01-2022', 'state', 'F', 80000.00);
+
+-- Test dates :
+UPDATE date_sequence SET seq_date = '07-11-2022' WHERE date_sequence = '01-11-2022'; -- > This date is the first representation of the first show
+SELECT * FROM transactions -- will show the fees paid by the theater 1 for the show 1
+
+UPDATE date_sequence SET seq_date = '10-11-22' WHERE date_sequence = '07-11-22'; -- > This date is the first representation of the second show
+
+UPDATE date_sequence SET seq_date = '15-11-2022' WHERE date_sequence = '10-11-2022'; -- > This date is the first subvention date
+SELECT * FROM representation WHERE date_rep = '18-11-2022'; -- will show the diiscount price for the show 3 in theater 2
+SELECT * FROM subvention -- will show the subvention credited for the theaters
+SELECT * FROM bank WHERE id_bank IN (SELECT id_bank FROM theater); -- will show the bank account credited of the theaters
+
+UPDATE date_sequence SET seq_date = '17-11-2022' WHERE date_sequence = '15-11-2022';
+UPDATE date_sequence SET seq_date = '18-11-2022' WHERE date_sequence = '17-11-2022';
+UPDATE date_sequence SET seq_date = '20-11-2022' WHERE date_sequence = '18-11-2022';
+UPDATE date_sequence SET seq_date = '22-11-2022' WHERE date_sequence = '20-11-2022';
+UPDATE date_sequence SET seq_date = '24-11-2022' WHERE date_sequence = '22-11-2022';
+UPDATE date_sequence SET seq_date = '25-11-2022' WHERE date_sequence = '24-11-2022';
+UPDATE date_sequence SET seq_date = '01-12-2022' WHERE date_sequence = '25-11-2022';
+UPDATE date_sequence SET seq_date = '07-12-2022' WHERE date_sequence = '01-12-2022';
+UPDATE date_sequence SET seq_date = '08-12-2022' WHERE date_sequence = '07-12-2022';
+UPDATE date_sequence SET seq_date = '10-12-2022' WHERE date_sequence = '08-12-2022';
+UPDATE date_sequence SET seq_date = '15-12-2022' WHERE date_sequence = '10-12-2022';
+UPDATE date_sequence SET seq_date = '18-12-2022' WHERE date_sequence = '15-12-2022';
+UPDATE date_sequence SET seq_date = '22-12-2022' WHERE date_sequence = '18-12-2022';
+UPDATE date_sequence SET seq_date = '31-12-2022' WHERE date_sequence = '22-12-2022';
+UPDATE date_sequence SET seq_date = '01-01-2023' WHERE date_sequence = '31-12-2022'; -- > day pf the state every 5 year subvention
+SELECT * FROM subvention -- will show the subvention credited for the theaters
+SELECT * FROM bank WHERE id_bank IN (SELECT id_bank FROM theater); -- will show the bank account credited of the theaters
+
+UPDATE date_sequence SET seq_date = '01-02-2023' WHERE date_sequence = '01-01-2023';
+
+DELETE FROM bank;
+DELETE FROM theater;
+DELETE FROM company;
+DELETE FROM show;
+DELETE FROM representation;
+DELETE FROM tickets;
+DELETE FROM subventions;

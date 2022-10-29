@@ -1,4 +1,6 @@
--- Basic security triggers
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+-- First we add a date before creating the triggers.
+INSERT INTO date_sequence VALUES ( '01-11-2022');
 
 -- trigger that checks if bank account A and B are different
 CREATE OR REPLACE TRIGGER transaction_bank_check
@@ -24,12 +26,12 @@ BEGIN
     WHERE s.id_show = :NEW.id_show 
     AND c.id_company = s.id_company;
 
-    IF :NEW.theater_id_theater = theater_checked THEN
+    IF :NEW.id_theater = theater_checked THEN
         IF :NEW.travel_cost <> 0 THEN
             RAISE_APPLICATION_ERROR(-20000, 'Travel cost must be 0 when the theater is the same as the company''s theater');
         END IF;
     ELSE
-        DBMS_OUTPUT.PUT_LINE('Correctly added with travel cost 0');
+        DBMS_OUTPUT.PUT_LINE('Correctly added with travel cost different than 0');
     END IF;
 END;
 
@@ -48,7 +50,6 @@ END;
 -- Trigger Budget et Couts de Production
 CREATE OR REPLACE TRIGGER pay_fees
 AFTER UPDATE OR INSERT ON date_sequence
-REFERENCING NEW AS NEW
 FOR EACH ROW
 DECLARE
     total_fees FLOAT(2);
@@ -59,8 +60,8 @@ BEGIN
     SELECT s.fix_fees + s.nb_repr * (r.cost + r.travel_cost), t.id_bank, c.id_bank INTO total_fees, theater_bank, company_bank
     FROM show s, representation r, theater t, company c
     WHERE s.id_show = r.id_show
-    AND s.first_repr = :NEW.seq_date
-    AND t.id_theater = r.theater_id_theater
+    AND s.first_rep = :NEW.seq_date
+    AND t.id_theater = r.id_theater
     AND c.id_company = s.id_company;
 
     INSERT INTO transaction (id_transaction, id_bank_a, id_bank_b, amount)
@@ -77,12 +78,10 @@ DECLARE
     rep_date DATE;
     show INTEGER;
 BEGIN
-    SELECT ti.ref_price, r.date_rep, ti.id_show INTO price, rep_date, show
-    FROM tickets ti, representation r
-    WHERE ti.id_show = r.id_show;
-    
+    SELECT r.ref_price, r.date_rep, r.id_show INTO price, rep_date, show
+    FROM representation r;
     IF rep_date - :NEW.seq_date < 15 THEN
-        UPDATE tickets SET ref_price = price * 0.8 WHERE id_show = show;
+        UPDATE representation SET ref_price = price * 0.8 WHERE id_show = show;
         DBMS_OUTPUT.PUT_LINE('Correctly updated the price of the tickets regarding to the date');
     END IF;
 END;
@@ -96,14 +95,14 @@ DECLARE
     nb_places_taken INTEGER;
     price FLOAT(2);
 BEGIN
-    SELECT t.capacity, (SELECT COUNT(*) FROM tickets WHERE id_show = :NEW.id_show), ti.ref_price INTO nb_places, nb_places_taken, price
+    SELECT t.capacity, (SELECT COUNT(*) FROM tickets WHERE id_show = :NEW.id_show), r.ref_price INTO nb_places, nb_places_taken, price
     FROM tickets ti, theater t, representation r
     WHERE ti.id_show = :NEW.id_show
     AND r.id_show = ti.id_show
-    AND t.id_theater = r.Theater_id_theater;
+    AND t.id_theater = r.id_theater;
 
     IF nb_places_taken / nb_places < 0.3 THEN
-        UPDATE tickets SET ref_price = price * 0.5 WHERE id_show = :NEW.id_show;
+        UPDATE representation SET ref_price = price * 0.5 WHERE id_show = :NEW.id_show;
         DBMS_OUTPUT.PUT_LINE('Correctly updated the price of the tickets regarding to the filling of the room');
     END IF;
 END;
@@ -119,15 +118,15 @@ DECLARE
     nb_places INTEGER;
     nb_places_taken INTEGER;
 BEGIN
-    SELECT ti.ref_price, r.date_rep, ti.id_show, t.capacity, COUNT(*) INTO price, rep_date, show, nb_places, nb_places_taken
+    SELECT r.ref_price, r.date_rep, r.id_show, t.capacity, COUNT(*) INTO price, rep_date, show, nb_places, nb_places_taken
     FROM tickets ti, representation r, theater t
     WHERE ti.id_show = r.id_show
     AND ti.id_show = show
     AND r.id_show = ti.id_show
-    AND t.id_theater = r.Theater_id_theater;
+    AND t.id_theater = r.id_theater;
     
     IF rep_date = :NEW.seq_date AND nb_places_taken / nb_places < 0.5 THEN
-        UPDATE tickets SET ref_price = price * 0.7 WHERE id_show = show;
+        UPDATE representation SET ref_price = price * 0.7 WHERE id_show = show;
         DBMS_OUTPUT.PUT_LINE('Correctly updated the price of the tickets regarding to the date and the filling of the room');
     END IF;
 END;
@@ -141,13 +140,30 @@ DECLARE
     theater INTEGER;
     bank INTEGER;
     amount FLOAT(2);
+    sender VARCHAR(25);
+    subvention INTEGER;
+    next_date INTEGER;
 BEGIN
-    SELECT su.sub_date, t.id_theater, t.id_bank, su.amount INTO paying_date, theater, bank, amount
-    FROM subvention s, theater t
+    SELECT su.sub_date, t.id_theater, t.id_bank, su.amount, su.sender, su.id_subvention INTO paying_date, theater, bank, amount, sender, subvention
+    FROM subvention su, theater t
     WHERE su.id_theater = t.id_theater;
 
     IF paying_date = :NEW.seq_date THEN
         UPDATE bank SET balance = balance + amount WHERE id_bank = bank;
+        UPDATE theater SET subvention = subvention + amount WHERE id_theater = theater;
+        IF sender <>'other' THEN
+            IF sender = 'town' THEN
+                next_date := 30;
+                INSERT INTO subvention(id_subvention, id_theater, sub_date, sender, credited, amount)
+                VALUES (SELECT(MAX(id_subvention) FROM subvention) + 1, theater, paying_date + next_date, sender, 'F', amount);
+                DBMS_OUTPUT.PUT_LINE('Correctly added the subvention for next month');
+            ELSE
+                next_date := 1825;
+                INSERT INTO subvention(id_subvention, id_theater, sub_date, amount, sender)
+                VALUES (SELECT(MAX(id_subvention) FROM subvention) + 1, theater, paying_date + next_date, sender, 'F', amount);
+                DBMS_OUTPUT.PUT_LINE('Correctly added the subvention for in 5 years');
+            END IF;
+        END IF;
         DBMS_OUTPUT.PUT_LINE('Correctly added the subvention in the bank accoutns');
     END IF;
 END;
@@ -180,11 +196,11 @@ DECLARE
     theater INTEGER;
     date_rep DATE;
 BEGIN
-    SELECT r.date_rep, r.Theater_id_theater INTO date_rep, theater
+    SELECT r.date_rep, r.id_theater INTO date_rep, theater
     FROM representation r
     WHERE r.id_show = :NEW.id_show;
 
-    IF date_rep = :NEW.date_rep AND theater = :NEW.Theater_id_theater THEN
+    IF date_rep = :NEW.date_rep AND theater = :NEW.id_theater THEN
         RAISE_APPLICATION_ERROR(-20001, 'The theater already has a show on this date');
     END IF;
 END;
@@ -204,4 +220,22 @@ BEGIN
     IF date_rep = :NEW.date_rep AND company = :NEW.Company_id_company THEN
         RAISE_APPLICATION_ERROR(-20002, 'The company already has a show on this date');
     END IF;
+END;
+
+-- Trigger that add in the theater bank account the amount of the ticket sold
+CREATE OR REPLACE TRIGGER ticket_sold_trigger
+    AFTER INSERT OR UPDATE ON tickets
+    FOR EACH ROW
+DECLARE
+    theater INTEGER;
+    bank INTEGER;
+    amount FLOAT(2);
+BEGIN
+    SELECT t.id_theater, t.id_bank, ti.sold_price INTO theater, bank, amount
+    FROM tickets ti, theater t, representation r
+    WHERE ti.id_show = r.id_show
+    AND r.id_theater = t.id_theater;
+
+    UPDATE bank SET balance = balance + amount WHERE id_bank = bank;
+    DBMS_OUTPUT.PUT_LINE('Correctly added the amount of the ticket sold in the bank account');
 END;
